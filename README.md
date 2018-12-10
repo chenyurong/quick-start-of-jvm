@@ -45,3 +45,7 @@ JVM快速入门，从零开始带你进入JVM的世界。
 * [JVM规范导读系列 - 第5章：加载、链接与初始化](jvm_specification_serial/jvm_specification_05_load_link_init.md)
 * [JVM规范导读系列 - 第6章：Java虚拟机指令集](jvm_specification_serial/jvm_specification_06_jvm_command_set.md)
 * [JJVM规范导读系列 - 总结](jvm_specification_serial/jvm_specification_07_summary.md)
+
+## 更多
+
+更多技术文章，欢迎围观我的博客园：[陈树义的博客园](https://www.cnblogs.com/chanshuyi/)，手机端可以关注我的公众号：「Java技术精选」。
