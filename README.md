@@ -24,7 +24,7 @@ JVM快速入门，从零开始带你进入JVM的世界。
 
 ## JVM实战系列
 
-* [JVM实战系列第1讲：JDK性能监控命令]()
+* [JVM实战系列第1讲：JDK性能监控命令](jvm_combat_serial/jvm_combat_serial_01_jdk_tools.md)
 * [JVM实战系列第2讲：图形化监控工具JConsole]()
 * [JVM实战系列第3讲：可视化监控功能VisualVM]()
 * [JVM实战系列第4讲：堆分析工具MAT]()
