@@ -1,18 +1,13 @@
 # JVM实战系列第1讲：JDK性能监控命令
 
-JDK提供了一系列的命令工具来辅助监控JVM的运行状态，常用的JDK监控命令有下面几个：
+JDK提供了一系列的命令工具来辅助监控JVM的运行状态，其中最常用的JDK监控命令有下面几个：
 
-|命令|作用|
-|:---:|:---:|
-|jps命令|查看虚拟机进程。|
-|jstat命令|统计虚拟机信息。常用于查看虚拟机GC情况。|
-|jinfo命令|查看Java应用程序的扩展参数。|
-|jmap命令|导出堆到文件|
-|jhat命令|JDK自带的堆分析工具|
-|jstack命令|查看线程堆栈信息|
-|jstatd命令|远程主机信息收集|
-|jcmd命令|多功能命令行，jcmd 命令可以针对给定的 Java 虚拟机执行一条命令。|
-|hprof命令|性能统计工具| 
+* jps命令：查看虚拟机进程
+* jstat命令：查看JVM的GC情况
+* jmap命令：导出JVM堆信息
+* jstack命令：导出线程堆栈信息
+
+更多命令可以查阅本文附带的[更多JDK性能命令]()。
 
 ## 查看虚拟机进程：jps 命令
 
@@ -20,8 +15,11 @@ jps 命令可以列出所有的 Java 进程。如果 jps 不加任何参数，�
 
 ```
 $ jps
-6540 Jps
-64447 Main
+33970
+34072 Launcher
+34073 SleepDemo
+34027 RemoteMavenServer
+34140 Jps
 ```
 
 除此之外，还可以指定下面的参数自定义输出信息：
@@ -82,21 +80,6 @@ $ jstat -gcutil 2365
 |YUC、YGCT|表示从程序运行以来一共发生了0次Minor GC（YGC，Young GC），总共耗时0秒。|
 |FGC、FGCT|表示从程序运行以来一共发生了0次Full GC（FGC，Full GC），总共耗时0秒。|
 
-## 查看虚拟机参数：jinfo 命令
-
-jinfo 可以用来查看正在运行的 Java 应用程序的扩展参数，甚至支持在运行时，修改部分参数。它的基本语法是：
-
-```
-jinfo <option> <pid>
-```
-
-执行例子，查询 CMSInitiatingOccupancyFraction 参数值
-
-```
-$ jinfo -flag CMSInitiatingOccupancyFraction 2618
--XX:CMSInitiatingOccupancyFraction=-1
-```
-
 ## 导出堆到文件：jmap 命令
 
 jmap 是一个多功能命令，可以生成 Java 程序的 Dump 文件，也可以查看堆内对象实例的统计信息、查看 ClassLoader 的信息以及 finalizer 队列。
@@ -113,7 +96,59 @@ Dumping heap to /Users/yurongchan/Desktop/dump.bin ...
 Heap dump file created
 ```
 
-## 堆分析工具：jhat 命令
+## 查看线程堆栈：jstack 命令
+
+jstack 命令用于导出 Java 应用程序的线程堆栈。
+
+jstack命令格式：
+
+```
+jstack [option] vmid
+```
+
+使用下面的例子来测试jstack命令：
+
+```
+public class SleepDemo {
+    public static void main(String[] args) {
+        System.out.println("Enter main...");
+        try {
+            Thread.sleep(60 * 60 * 1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+上面例子中让线程休眠了一个小时，之后利用`jstack`命令导出堆栈信息：
+
+```
+"main" #1 prio=5 os_prio=31 tid=0x00007f8bd8800800 nid=0x1103 waiting on condition [0x000070000e3c2000]
+   java.lang.Thread.State: TIMED_WAITING (sleeping)
+	at java.lang.Thread.sleep(Native Method)
+	at com.chenshuyi.SleepDemo.main(SleepDemo.java:11)
+   Locked ownable synchronizers:
+	- None
+```
+
+从上面部分堆栈信息可以看出，SleepDemo类的线程状态为`TIMED_WAITING`，即正在休眠的状态。
+
+## 更多JDK性能命令
+
+|命令|作用|
+|:---:|:---:|
+|jps命令|查看虚拟机进程。|
+|jstat命令|统计虚拟机信息。常用于查看虚拟机GC情况。|
+|jinfo命令|查看Java应用程序的扩展参数。|
+|jmap命令|导出堆到文件|
+|jhat命令|JDK自带的堆分析工具|
+|jstack命令|查看线程堆栈信息|
+|jstatd命令|远程主机信息收集|
+|jcmd命令|多功能命令行，jcmd 命令可以针对给定的 Java 虚拟机执行一条命令。|
+|hprof命令|性能统计工具| 
+
+### 堆分析工具：jhat 命令 
 
 jhat 命令用于分析 Java 应用的对快照内存。Sun JDK 提供了 jhat 命令与 jmap 搭配使用，来分析 jmap 生成的堆转储快照。jhat 内置了一个微型的 HTTP/HTML 服务器，生成 dump 文件的分析结果后，可以在浏览器中查看。下面我们用 jhat 来分析上面生成的 dump.bin 文件：
 
@@ -136,41 +171,33 @@ Server is ready.
 
 不过一般情况下不用 jhat 命令来分析 dump 文件，主要有以下两个原因：一是一般不会再部署应用的服务器上分析 dump 文件，因为分析工作是一个耗时而且消耗硬件资源的过程。另一个原因是 jhat 的分析功能还比较简陋，比起后面介绍的 VisualVM 等工具还差得很多。
 
-## 查看线程堆栈：jstack 命令
-
-jstack 命令用于导出 Java 应用程序的线程堆栈。jstack命令格式：
-
-```
-jstack [option] vmid
-```
-
-下面使用jstack查看一个线程对战的例子：
-
-```
-nobody $ jstack -l 2618
-2016-05-15 23:39:04
-Full thread dump Java HotSpot(TM) 64-Bit Server VM (24.79-b02 mixed mode):
-"Attach Listener" daemon prio=5 tid=0x00007f83228e6000 nid=0x280b waiting on condition [0x0000000000000000]
-   java.lang.Thread.State: RUNNABLE
-   Locked ownable synchronizers:
-    - None
-"DestroyJavaVM" prio=5 tid=0x00007f832387e800 nid=0x1303 waiting on condition [0x0000000000000000]
-   java.lang.Thread.State: RUNNABLE
-   Locked ownable synchronizers:
-    - None
-```
-## 远程主机信息收集：jstatd 命令
+### 远程主机信息收集：jstatd 命令
 
 jstad 命令用于收集远程主机信息。
 
 日常使用较少，如感兴趣可以参考《实战Java虚拟机》一书。
 
-## 多功能命令行：jcmd 命令
+### 多功能命令行：jcmd 命令
 
 jcmd 命令可以针对给定的 Java 虚拟机执行一条命令。
 
 日常使用较少，如感兴趣可以参考《实战Java虚拟机》一书。
 
-## 性能统计工具：hprof 命令
+### 性能统计工具：hprof 命令
 
 日常使用较少，如感兴趣可以参考《实战Java虚拟机》一书。
+
+### 查看虚拟机参数：jinfo 命令
+
+jinfo 可以用来查看正在运行的 Java 应用程序的扩展参数，甚至支持在运行时，修改部分参数。它的基本语法是：
+
+```
+jinfo <option> <pid>
+```
+
+执行例子，查询 CMSInitiatingOccupancyFraction 参数值
+
+```
+$ jinfo -flag CMSInitiatingOccupancyFraction 2618
+-XX:CMSInitiatingOccupancyFraction=-1
+```
