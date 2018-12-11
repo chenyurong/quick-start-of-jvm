@@ -39,13 +39,11 @@ JVM快速入门，从零开始带你进入JVM的世界。
 ## JVM实战系列
 
 * [JVM实战系列第1讲：JDK性能监控命令](jvm_combat_serial/jvm_combat_serial_01_jdk_tools.md)
-* [JVM实战系列第2讲：图形化监控工具JConsole]()
-* [JVM实战系列第3讲：可视化监控功能VisualVM]()
-* [JVM实战系列第4讲：堆分析工具MAT]()
-* [JVM实战系列第5讲：内存溢出的分析方法]()
-* [JVM实战系列第6讲：CPU100%的分析方法]()
-* [JVM实战系列第7讲：JVM实战案例1]()
-* [JVM实战系列第8讲：JVM实战案例2]()
+* [JVM实战系列第2讲：图形化监控工具JConsole](jvm_combat_serial/jvm_combat_serial_02_visual_tools_jconsole.md)
+* [JVM实战系列第3讲：可视化监控工具VisualVM](jvm_combat_serial/jvm_combat_serial_03_visual_tools_visualvm.md)
+* [JVM实战系列第4讲：堆内存分析工具MAT](jvm_combat_serial/jvm_combat_serial_04_mat.md)
+* [JVM实战系列第5讲：内存溢出的分析方法](jvm_combat_serial/jvm_combat_serial_05_oom_remedy.md)
+* [JVM实战系列第6讲：CPU100%的分析方法](jvm_combat_serial/jvm_combat_serial_06_cpu_100_remedy.md) 
 
 ## Java虚拟机规范导读系列
 
@@ -64,7 +62,7 @@ JVM快速入门，从零开始带你进入JVM的世界。
 
 更多技术文章，欢迎围观我的博客园：[陈树义的博客园](https://www.cnblogs.com/chanshuyi/)，手机端可以关注我的公众号：「Java技术精选」。
 
-### 相关链接
+## 相关链接
 
 - [NEC](http://nec.netease.com/) {N: nice, E: easy, C: css;}
 
