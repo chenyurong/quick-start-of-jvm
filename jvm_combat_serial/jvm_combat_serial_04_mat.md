@@ -1,9 +1,8 @@
 # JVM实战系列第4讲：堆内存分析工具MAT
 
-MAT官网：https://www.eclipse.org/mat/
-下载MAT：https://www.eclipse.org/mat/downloads.php
-
-
+* MAT官网：https://www.eclipse.org/mat/
+* 下载MAT：https://www.eclipse.org/mat/downloads.php
+* Mac下MAT启动报错解决方案：https://mahl1990.iteye.com/blog/2410197
 
 可以参考：
 
