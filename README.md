@@ -4,13 +4,7 @@ JVM快速入门指南涵括了大部分JVM所需的知识点，从入门到实�
 
 <!-- 点击[**这里**](http://chanshuyi.github.io/frontend_notebook/)开始阅读！ -->
 
-如果你觉得这个项目不错，请点击 Star 一下，您的支持是我最大的动力。
-
-<!-- Place this tag where you want the button to render. -->
-<a class="github-button" href="https://github.com/ChanShuYi/FrontEnd_NOTE" data-style="mega" data-count-href="/ChanShuYi/FrontEnd_NOTE/stargazers" data-count-api="/repos/ChanShuYi/FrontEnd_NOTE#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star ChanShuYi/FrontEnd_NOTE on GitHub">Star</a>
-&nbsp;&nbsp;<a class="github-button" href="https://github.com/ChanShuYi/FrontEnd_NOTE" data-style="mega" data-count-href="/ChanShuYi/FrontEnd_NOTE/watchers" data-count-api="/repos/ChanShuYi/FrontEnd_NOTE#subscribers_count" data-count-aria-label="# watchers on GitHub" aria-label="Watch ChanShuYi/FrontEnd_NOTE on GitHub">Watch</a>
-&nbsp;&nbsp;<a class="github-button" href="https://github.com/ChanShuYi/FrontEnd_NOTE/fork" data-style="mega" data-count-href="/ChanShuYi/FrontEnd_NOTE/network" data-count-api="/repos/ChanShuYi/FrontEnd_NOTE#forks_count" data-count-aria-label="# forks on GitHub" aria-label="Fork ChanShuYi/FrontEnd_NOTE on GitHub">Fork</a>
-&nbsp;&nbsp;<a class="github-button" href="https://github.com/ChanShuYi/FrontEnd_NOTE/archive/master.zip" data-style="mega" aria-label="Download ChanShuYi/FrontEnd_NOTE on GitHub">Download</a> 
+如果你觉得这个项目不错，请点击 Star 一下，您的支持是我最大的动力。 
 
 ### 写作进程
 
