@@ -1,4 +1,18 @@
-# quick-start-of-jvm
+# JVM快速入门指南 
+
+JVM快速入门指南涵括了大部分JVM所需的知识点，从入门到实战由浅到深，向你娓娓道来JVM的原理知识。
+
+<!-- 点击[**这里**](http://chanshuyi.github.io/frontend_notebook/)开始阅读！ -->
+
+如果你觉得这个项目不错，请点击 Star 一下，您的支持是我最大的动力。 
+
+### 写作进程
+
+|章节|进程|
+|----|----|
+|JVM基础系列|![](http://progressed.io/bar/80)|
+|JVM实战系列|![](http://progressed.io/bar/10)|
+|JVM规范导读系列|![](http://progressed.io/bar/100)|
 
 JVM快速入门，从零开始带你进入JVM的世界。
 
@@ -46,6 +60,12 @@ JVM快速入门，从零开始带你进入JVM的世界。
 * [JVM规范导读系列 - 第6章：Java虚拟机指令集](jvm_specification_serial/jvm_specification_06_jvm_command_set.md)
 * [JJVM规范导读系列 - 总结](jvm_specification_serial/jvm_specification_07_summary.md)
 
-## 更多
+## 更多文章
 
 更多技术文章，欢迎围观我的博客园：[陈树义的博客园](https://www.cnblogs.com/chanshuyi/)，手机端可以关注我的公众号：「Java技术精选」。
+
+### 相关链接
+
+- [NEC](http://nec.netease.com/) {N: nice, E: easy, C: css;}
+
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a><br />This work by <a xmlns:cc="http://creativecommons.org/ns#" href="https://www.github.com/ChanShuYi" property="cc:attributionName" rel="cc:attributionURL">ChanShuYi</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
